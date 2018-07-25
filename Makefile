@@ -5,7 +5,7 @@
 
 # VARIABLES
 
-NAME := <APPLICATION_NAME>
+NAME := spring-swagger
 GIT_COMMIT_HASH := $(shell git log --pretty=format:'%h' -n 1)
 
 BUILD_TOOL := ./mvnw
@@ -18,7 +18,7 @@ OTHER_OPTS := -Dspring.profiles.active=insecure,local,sampledata
 
 IMAGE_NAME := samples/$(NAME)
 IMAGE_TAG := latest
-IMAGE_EXPOSE_PORT := 9190
+IMAGE_EXPOSE_PORT := 8081
 DOCKER_HOST_IP := localhost
 DOCKER_HOST_PORT := 5000
 
