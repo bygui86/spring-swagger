@@ -13,30 +13,19 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 
 @Slf4j
 @FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
-@Profile(SpringProfileConstants.SPRING_PROFILE_SECURITY_SECURE)
+@Profile(SpringProfileConstants.SPRING_PROFILE_SECURITY_INSECURE)
 @Configuration(value = "securitySecureConfig")
 @EnableWebSecurity
-public class SecuritySecureConfig extends WebSecurityConfigurerAdapter {
-
-	static String ACTUATOR_URL_MATCHER = "/actuator/**";
-
-	static String SWAGGER_UI_URL_MATCHER = "/swagger*";
-
-	static String SWAGGER_DOCS_URL_MATCHER = "/v2/api-docs";
-
-	static String SAMPLE_URL_MATCHER = "/sample/**";
-
-	static String SECRET_URL_MATCHER = "/secret/**";
+public class SecurityInsecureConfig extends WebSecurityConfigurerAdapter {
 
 	@Override
 	protected void configure(final HttpSecurity http) throws Exception {
 
-		log.debug("Loading SECURE security config...");
+		log.debug("Loading INSECURE security config...");
 
 		http
 				.authorizeRequests()
-				.mvcMatchers(ACTUATOR_URL_MATCHER, SWAGGER_UI_URL_MATCHER, SWAGGER_DOCS_URL_MATCHER).authenticated()
-				.mvcMatchers(SAMPLE_URL_MATCHER, SECRET_URL_MATCHER).permitAll()
+				.anyRequest().permitAll()
 
 				.and()
 				.httpBasic()

@@ -11,10 +11,10 @@ GIT_COMMIT_HASH := $(shell git log --pretty=format:'%h' -n 1)
 BUILD_TOOL := ./mvnw
 JAR_FILE := $(shell find target -name '*.jar' 2>/dev/null)
 # see https://docs.spring.io/spring-boot/docs/2.0.3.RELEASE/maven-plugin/run-mojo.html#jvmArguments
-MEM_OPTS := -Xms256m -Xmx256m
+MEM_OPTS := -Xms128m -Xmx128m -XX:MaxMetaspaceSize=128m
 JMX_OPTS := -XX:+UnlockCommercialFeatures -XX:+FlightRecorder -Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.port=39666 -Dcom.sun.management.jmxremote.local.only=false -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false
 DEBUG_OPTS := -Xdebug -Xnoagent -Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=5005
-OTHER_OPTS := -Dspring.profiles.active=insecure,local,sampledata
+#OTHER_OPTS := -Dspring.profiles.active=secure
 
 IMAGE_NAME := samples/$(NAME)
 IMAGE_TAG := latest
