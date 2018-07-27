@@ -10,6 +10,21 @@
 
 	<name>spring-swagger</name>
 	<description>Spring-Swagger sample project</description>
+	<url>https://github.com/bygui86/spring-swagger</url>
+
+	<contributors>
+		<contributor>
+			<name>Matteo Baiguini</name>
+			<url>https://github.com/bygui86</url>
+		</contributor>
+	</contributors>
+
+	<developers>
+		<developer>
+			<name>Matteo Baiguini</name>
+			<url>https://github.com/bygui86</url>
+		</developer>
+	</developers>
 
 	<properties>
 		<!-- general -->
@@ -104,13 +119,6 @@
 			<version>${lombok.version}</version>
 			<scope>provided</scope>
 			<optional>true</optional>
-		</dependency>
-
-		<!-- testing -->
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-test</artifactId>
-			<scope>test</scope>
 		</dependency>
 	</dependencies>
 
